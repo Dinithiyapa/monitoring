@@ -1,0 +1,31 @@
+global:
+  scrape_interval: 15s
+alerting:
+  alertmanagers:
+  - scheme: http
+    static_configs:
+    - targets:
+      - "alertmanager:9093"
+
+rule_files:
+  - "alerts.yml"
+
+scrape_configs:
+  - job_name: "prometheus"
+    scrape_interval: 1m
+    static_configs:
+    - targets: ["localhost:9090"]
+
+  - job_name: "node"
+    static_configs:
+    - targets: ["node-exporter:9100"]
+
+  - job_name: "cadvisor"
+    scrape_interval: 5s
+    static_configs:
+    - targets: ["13.60.207.185:8081"]
+  - job_name: 'loki'
+    static_configs:
+      - targets: ['13.60.207.185:3100']
+        labels:
+          job: 'loki'
