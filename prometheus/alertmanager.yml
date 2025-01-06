@@ -1,0 +1,17 @@
+global:
+  resolve_timeout: 1m
+ 
+
+route:
+  receiver: 'gmail-receiver'
+  repeat_interval: 1m
+receivers:
+- name: gmail-receiver
+  email_configs:
+  - to: yapadinithi@gmail.com
+    from: yapadinithi@gmail.com
+    smarthost: smtp.gmail.com:587
+    auth_username: yapadinithi@gmail.com
+    auth_identity: yapadinithi@gmail.com
+    auth_password: cytk cspu ddib sbrw
+
